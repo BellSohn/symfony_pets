@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Treatements View {% endblock %}
+
+{% block body %}
+	<div>
+		<h2>Current Treatements</h2>
+	</div>
+	{% if treatments|length >= 1 %}
+		<table>
+			<tr class="first">
+				<th>animal code</th>
+				<th>title</th>
+				<th>begin</th>
+				<th>end</th>
+				<th>comments</th>
+			</tr>
+			{% for treatement in treatments %}
+				<tr>
+					<td>{{ treatement.id }}</td>
+					<td>{{ treatement.title }}</td>
+					<td>{{ treatement.begin|date('y-m-d h:m:s')}}</td>
+					<td>{{ treatement.end|date('y-m-d h:m:s')}}</td>
+					<td>{{ treatement.comments }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% else %}	
+	<div>
+	{#	<td><a href="{{ path('task_edit',{'id':task.id }) }}">edit</a></td> #}
+		<h3>No treatements to manage</h3>
+	
+	</div>
+	{% endif %}
+
+
+{% endblock %}

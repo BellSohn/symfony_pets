@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login de usuarios {% endblock %}
+
+{% block body %}
+
+
+
+   
+
+    {% if error %}
+    	<div class="alert alert-error">
+    		{{ error.messagekey|trans(error.messageData,'security') }}
+    	</div>
+    {% endif %}
+
+    
+    {% if app.user %}
+    	Hola: {{ app.user.name  }}
+    {% endif %}
+    
+<div class="div_wraper">
+ <h2>Users Login</h2>
+   <form action="{{ path('login')}}" method="POST">
+   	{# aunque el campo es Email, hay que poner username en el for, porque asi lo prcesa la autenticacion#}
+   	<label for="username">Email</label>
+   	<input type="email" id="username" name="_username" value="{{ last_username }}"/>
+   	<label for="password">password</label>
+   	<input type="password" id="password" name="_password"/>
+   	<div class="clearfix"></div>
+   	<input type="submit" value="login"/>
+   </form>
+</div>
+    
+
+{% endblock %}

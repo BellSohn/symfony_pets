@@ -1,0 +1,17 @@
+{% extends('base.html.twig') %}
+
+{% block title %}	Task detail {% endblock %}
+
+{% block body %}
+	
+	<h2>{{ task.title }}</h2>
+	<div>
+		<p>
+			{{ task.content }}
+		</p>
+		<p>
+			{{ task.user.name ~ "    "~ task.user.username ~ "  |  " ~ task.priority }}
+		</p>
+	</div>
+
+{% endblock %}

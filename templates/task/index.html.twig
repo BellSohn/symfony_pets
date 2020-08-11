@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Tareas{% endblock %}
+
+{% block body %}
+	
+	{#{{ dump(allTask) }}#}
+
+	{% if allTask|length >= 1 %}
+		<table>
+			<tr class="first">
+				<th>title</th>
+				<th>content</th>
+				<th>priority</th>				
+				<th>actions</th>
+			</tr>			
+			{% for task in allTask %}
+				<tr>
+					<td>{{ task.title }}</td>
+					<td>{{ task.content }}</td>
+					<td>{{ task.priority }}</td>					
+					{% if app.user!= null and task.user.id == app.user.id %}
+					<td class="buttons">
+					<a href="{{ path('task_detail',{'id':task.id}) }}" class="ver">view</a>
+					<a href="{{ path('task_edit',{'id':task.id }) }}" class="edit">edit</a>
+					<a href="#" class="delete">delete</a>
+					</td>					
+					{% endif %}				
+					
+				</tr>
+			{% endfor %}
+		</table>
+
+	{% endif %}	
+
+{% endblock %}

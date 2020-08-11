@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} All Animals {% endblock %}
+
+{% block body %}
+	<div>
+		<h2>All the Animals</h2>
+	</div>
+{% if allAnimals|length >= 1 %}	
+	<table>
+		<tr class="first">
+			<th>animal code</th>
+			<th>name</th>
+			<th>type</th>
+			<th>birth date</th>
+			<th>created</th>
+			<th>owner info</th>
+			<th>actions</th>
+			
+		</tr>
+		{% for animal in allAnimals %}
+			<tr>
+				<td>{{ animal.id }}</td>
+				<td>{{ animal.name }}</td>
+				<td>{{ animal.type }}</td>
+				<td>{{ animal.birth|date('y-m-d h:m:s')}}</td>
+				<td>{{ animal.createdAt|date('y-m-d:h:m:s')}}</td>
+				<td><a href="{{ path('owner_detail',{'id':animal.getOwner.id})}}">owner 
+				info</a></td>
+				<td><a href="{{ path('treatement_creation',{'id':animal.id})}}">nuevo tratamiento</a></td>
+				
+			</tr>
+		{% endfor %}
+	</table>
+	
+{% else %}	
+	<div>
+		<h2><strong>There are no Animals</strong></h2>
+	</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,123 @@
+@font-face{
+	font-family: 'Aldrich';
+	src:url('fonts/Aldrich-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*{
+	font-family: 'Aldrich';
+}
+
+body{
+	background:#ddd8d8;
+
+}
+
+.clearfix{
+	float:none;
+	clear:both;
+}
+
+.head{
+	
+	float: left;
+	margin: 0px 0px 0px 426px;
+}
+
+.head h2{
+	color: rgb(38, 74, 62);
+}
+
+.div_user{	
+	float: left;
+	margin: 50px 0px 0px 151px;
+}
+
+.nav_menu{
+	float: left;
+	width: 100%;
+	margin: 26px 0px 41px 0px;
+}
+
+.nav_menu li{
+	display: inline-block;
+	letter-spacing: 2px;
+}
+
+.nav_menu li a{
+	text-decoration: none;
+	margin-left: 30px;
+	color: rgb(38, 74, 62);
+	transition: all 300ms;
+}
+
+.nav_menu li a:hover{
+	color:green;
+	background-color:rgba(12,12,12,1);
+}
+
+
+/*formato de tablas*/
+table{
+	width:90%;
+	text-align: center;
+	padding: 20px;
+	line-height: 40px;
+}
+
+table th{
+	border: 2px solid green;
+}
+
+table td{
+	border:2px solid rgb(38, 74, 62);
+}
+
+table .first{
+	color:green;
+	background: #918c8c;
+
+}
+
+.buttons a{
+	text-decoration: none;
+	color: white;
+	padding: 5px;
+	border: 1px solid black;
+
+}
+
+.buttons .ver{
+	background-color: green;
+	
+}
+
+.buttons .edit{
+	background-color: #918c8c;
+}
+
+.buttons .delete{
+	background-color: red;
+}
+
+
+
+/*formato de formularios*/
+
+.div_wraper{
+	float: right;
+	width: 70%;
+	margin: 0px 0px 0px 30px;
+}
+
+
+label{
+	display: block;
+	padding: 5px;
+}
+
+
+input[type="text"]{
+	width: 30%;
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %} Registro de usuarios {% endblock %}
+
+{% block body %}
+
+<div class="div_wraper">
+<h1>new users register</h1>
+	
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+</div>	
+
+{% endblock %}

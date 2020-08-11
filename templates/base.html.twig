@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        	<link href="{{ asset('assets/css/styles.css') }}" type="text/css" rel="stylesheet"/>
+        {% endblock %}
+    </head>
+    <body>
+    	{% block header %}
+        <div class="head">
+            <h2>WELCOME  TO THE PET CLINIC</h2>
+        </div>
+        
+        {% if app.user %}
+        <div class="div_user">
+         User logged <strong>{{ app.user.email }}</strong> 
+        </div> 
+        {% endif %}
+        <div class="clearfix"></div>
+    	<ul class="nav_menu">
+        	
+            {% if app.user %}
+            <li><a href="{{ path('task_creation') }}">create task</a></li>            
+            <li><a href="{{ path('tasks')}}">task view</a></li>
+            <li><a href="{{ path('tier') }}">animals view</a></li>
+            <li><a href="{{ path('treatement') }}">treatements view</a></li>
+            <li><a href="{{ path('owner_register')}}">new owner</a></li>
+            <li><a href="{{ path('logout') }}">logout</a></li>
+            {% else %}
+             <li><a href="{{ path('home') }}">home</a></li>   
+            <li><a href="{{ path('login') }}">Login</a></li>
+            <li><a href="{{ path('user-register') }}">register</a></li>
+            {% endif %}
+            
+        </ul>
+
+    	{% endblock %}
+        {% block body %}
+        	
+        {% endblock %}
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,60 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+home:
+    path: /home
+    controller: App\Controller\HomeController::index  
+
+tasks:
+    path: /tasks
+    controller: App\Controller\TaskController::index
+
+task_edit:
+    path: /task_edit/{id}
+    controller: App\Controller\TaskController::editTask 
+
+task_detail:
+    path: /task_detail/{id}
+    controller: App\Controller\TaskController::detailTask
+
+task_creation:
+    path: /register-task
+    controller: App\Controller\TaskController::registerTask
+
+
+treatement:
+    path: /treatement
+    controller: App\Controller\TreatementController::index
+
+
+treatement_creation:
+    path: /register-treatement/{id}
+    controller: App\Controller\TreatementController::registerTreatement    
+
+
+tier:
+    path: /tiere
+    controller: App\Controller\TierController::index  
+
+owner_detail:
+    path: /tier/{id}
+    controller: App\Controller\TierController::ownerDetail
+    
+
+owner_register:
+    path: /register
+    controller: App\Controller\OwnerController::registerOwner    
+
+
+user-register:
+    path: /user-register
+    controller: App\Controller\UserController::register
+
+login :
+    path: /login
+    controller : App\Controller\UserController::login
+
+logout:
+    path: /logout            
+
+

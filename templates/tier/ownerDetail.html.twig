@@ -1,0 +1,35 @@
+{% extends 'base.html.twig '%}
+
+{% block title %} Owner details {% endblock %}
+
+{% block body %}
+
+	<div>
+	<h2>Pet owner information</h2>
+	</div>
+	<p>
+		<strong>Name :</strong> {{ owner.name  ~ "    |    "~  owner.surname }}		
+	</p>
+	<table>
+	<tr>
+		<th>name</th>
+		<th>Surname</th>
+		<th>Telephone</th>
+		<th>Address</th>
+		<th>Email</th>
+		<!--<th>action</th>-->
+	</tr>
+	<tr>
+		<td>{{ owner.name }}</td>
+		<td>{{ owner.surname }}</td>
+		<td>{{ owner.telephone }}</td>
+		<td>{{ owner.address }}</td>
+		<td>{{ owner.email }}</td>
+		<!--<td><a href="#">Editar</a></td>-->
+
+	</tr>
+	</table>
+	
+
+
+{% endblock %}
