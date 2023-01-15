@@ -24,13 +24,12 @@ class UserController extends AbstractController
     	//fill the object
     	$form->handleRequest($request);
 
-    	//recibir datos del formulario
-    	if($form->isSubmitted() && $form->isValid()){
+    	//receive data from form
+    	if($form->isSubmitted() && $form->isValid()){    		
     		
-    		//$user->setRole('ROLE_USER');
     		$user->setCreatedAt(new \DateTime('now'));
 
-    		//cifrar el password
+    		//encode the password
     	$encoded = $encoder->encodePassword($user,$user->getPassword());
     	$user->setPassword($encoded);
 
