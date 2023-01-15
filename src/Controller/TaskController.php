@@ -24,73 +24,9 @@ class TaskController extends AbstractController
     public function index()
     {
 
-        //aqui mostramos todas las tareas
+        //here we show all areas
         $task_repo = $this->getDoctrine()->getRepository(Task::class);
-
-        $allTask = $task_repo->findAll();
-
-
-
-        
-        /*
-    	$em = $this->getDoctrine()->getManager();
-
-    	$task_repo = $this->getDoctrine()->getRepository(Task::class);
-
-    	$allTask = $task_repo->findAll();
-
-    	foreach($allTask as $task){
-    		echo $task->getTitle()."  |  Usuario email :".$task->getUser()->getEmail()."|   Nombre:".$task->getUser()->getName()."<br/>";
-            
-    	}
-
-        
-        $user_repo = $this->getDoctrine()->getRepository(User::class);
-        $all_users = $user_repo->findAll();
-
-        foreach($all_users as $user){
-          echo "Nombre de usuario : ".$user->getName()."   ||  apellidos : ".$user->getSurname()."<br/>";
-
-          foreach($user->getTasks() as $task){
-            echo "titulo tarea : ".$task->getTitle()." ||    ".$task->getContent()."<br/>";
-          }
-
-          foreach($user->getTreatements() as $treatement){
-                echo "titulo del tratamiento: ".$treatement->getTitle()."<br/>";
-          }
-
-        }
-
-
-       
-        $treatement_repo = $this->getDoctrine()->getRepository(Treatement::class);
-        $all_treatements = $treatement_repo->findAll();
-
-        foreach($all_treatements as $treatement){
-            echo "<strong>Tratamiento id:</strong> ".$treatement->getId()." || ".$treatement->getAnimal()->getName()."<br>";
-            
-        }
-        echo "<hr/>";
-       
-        $owners_repo = $this->getdoctrine()->getRepository(Owner::class);
-        $all_owners = $owners_repo->findAll();
-        foreach($all_owners as $owner){
-            echo "nombre usuario :".$owner->getName()." || ".$owner->getSurname()."<br/>";
-
-            foreach($owner->getAnimals() as $animal){
-                echo "<strong>animal name</strong>: ".$animal->getName()."  | ".$animal->getType()."<br/>";
-            }
-        }
-
-       
-        $animals_repo = $this->getDoctrine()->getRepository(Animal::class);
-        $all_animals = $animals_repo->findAll();
-        foreach($all_animals as $animal){
-          echo "animal nombre : ".$animal->getName(). "  |  duenio: ".$animal->getOwner()->getName()."<br/>";
-            
-        }
-        */
-       
+        $allTask = $task_repo->findAll();           
 
     	
         return $this->render('task/index.html.twig', [
@@ -121,8 +57,7 @@ class TaskController extends AbstractController
 
 
 
-                return $this->render('task/registerTask.html.twig',[
-                    //'controller_name' => 'TaskController',
+                return $this->render('task/registerTask.html.twig',[                  
                     'form'=>$form->createView(),
 
                 ]);
@@ -149,7 +84,7 @@ class TaskController extends AbstractController
             }    
 
 
-            //editar tarea para mofificarla
+       
 
             public function editTask(Request $request,UserInterface $user, Task $task){
 
@@ -177,7 +112,7 @@ class TaskController extends AbstractController
 
                    }  
 
-                   /*si pasamos en el array el edit a true,estamos en 'edicion'*/
+                   /*if we pass the edit as true,we are in edition modus*/
                    return $this->render('task/registerTask.html.twig',[
                         'edit' => true,
                         'form' => $form->createView()
